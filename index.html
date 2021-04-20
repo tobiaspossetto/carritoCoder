@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>GreatTechnologie</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="css/shop-homepage.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="logo-a navbar-brand" href="#"><img class='logo-img' src="assets/img/logo_blanco.png" alt=""></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Inicio
+              <span class="sr-only">(current)</span>
+            </a>
+
+          <li class="nav-item active">
+            <a class="nav-link" href="#carrito-titulo">Carrito</a>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+  <div class="container">
+
+    <div class="row">
+
+      <div class="col-lg-3">
+
+        <h1 class="my-4">Buscar</h1>
+        <div class="buscado">
+
+          <input type="text" class='buscador-input'>
+          <button type="button" class="btn btn-buscar btn-primary">Buscar</button>
+        </div>
+        <!--
+
+          <div class="list-group">
+            <a href="#" class="list-group-item">Apple</a>
+            <a href="#" class="list-group-item">Asus</a>
+            <a href="#" class="list-group-item">Acer</a>
+          </div>
+        -->
+
+      </div>
+      <!-- /.col-lg-3 -->
+
+      <div class="col-lg-9">
+
+        <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
+          <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+          </ol>
+          <div class="carousel-inner" role="listbox">
+            <div class="carousel-item active">
+              <img class="d-block img-fluid" src="assets/img/slide1.png" alt="First slide">
+            </div>
+            <div class="carousel-item">
+              <img class="d-block img-fluid" src="assets/img/slide2.jpg" alt="Second slide">
+            </div>
+            <div class="carousel-item">
+              <img class="d-block img-fluid" src="assets/img/slide3.jpg" alt="Third slide">
+            </div>
+          </div>
+          <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+
+        <div class="row" id='lista-productos'>
+
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100">
+              <a href="#"><img class="card-img-top" src="assets/img/aceraspire.png" alt=""></a>
+              <div class="card-body">
+                <h4 class="card-title">
+                  Acer Aspire
+                </h4>
+                <h5>$125000</h5>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!
+                </p>
+              </div>
+
+              <button type="button" class="btn btn-warning interaction-añadir" data-id='1'>Añadir al carrito</button>
+              
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100">
+              <a href="#"><img class="card-img-top" src="assets/img/asustuf.png" alt=""></a>
+              <div class="card-body">
+                <h4 class="card-title">
+                 Asus TUF
+                </h4>
+                <h5>$175000</h5>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!
+                  Lorem ipsum dolor sit amet.</p>
+              </div>
+
+              <button type="button" class="btn btn-warning interaction-añadir" data-id='2'>Añadir al carrito</button>
+
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100">
+              <a href="#"><img class="card-img-top" src="assets/img/asuszenbo.png" alt=""></a>
+              <div class="card-body">
+                <h4 class="card-title">
+                  Asus Zenbo
+                </h4>
+                <h5>$160000</h5>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!
+                  Lorem ipsum dolor sit amet.</p>
+              </div>
+
+              <button type="button" class="btn btn-warning interaction-añadir" data-id='3'>Añadir al carrito</button>
+
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100">
+              <a href="#"><img class="card-img-top" src="assets/img/lenovo.png" alt=""></a>
+              <div class="card-body">
+                <h4 class="card-title">
+                  Lenovo
+                </h4>
+                <h5>$80000</h5>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!
+                  Lorem ipsum dolor sit amet.</p>
+              </div>
+
+              <button type="button" class="btn btn-warning interaction-añadir" data-id='4'>Añadir al carrito</button>
+
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100">
+              <a href="#"><img class="card-img-top" src="assets/img/macbookair.png" alt=""></a>
+              <div class="card-body">
+                <h4 class="card-title">
+                  Macbook Air
+                </h4>
+                <h5>$340000</h5>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!
+                  Lorem ipsum dolor sit amet.</p>
+              </div>
+
+              <button type="button" class="btn btn-warning interaction-añadir" data-id='5'>Añadir al carrito</button>
+
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100">
+              <a href="#"><img class="card-img-top" src="assets/img/macbookpro.png" alt=""></a>
+              <div class="card-body">
+                <h4 class="card-title">
+                  Mackbook Pro
+                </h4>
+                <h5>$460000</h5>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!
+                  Lorem ipsum dolor sit amet.</p>
+              </div>
+
+              <button type="button" class="btn btn-warning interaction-añadir" data-id='6'>Añadir al carrito</button>
+
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100">
+              <a href="#"><img class="card-img-top" src="assets/img/nitro5.png" alt=""></a>
+              <div class="card-body">
+                <h4 class="card-title">
+                  <a href="#">Acer Nitro 5</a>
+                </h4>
+                <h5>$190000</h5>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!
+                  Lorem ipsum dolor sit amet.</p>
+              </div>
+
+              <button type="button" class="btn btn-warning interaction-añadir" data-id='7'>Añadir al carrito</button>
+
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100">
+              <a href="#"><img class="card-img-top" src="assets/img/otralenovo.png" alt=""></a>
+              <div class="card-body">
+                <h4 class="card-title">
+                  <a href="#">Lenovo Aspire</a>
+                </h4>
+                <h5>$120000</h5>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!
+                  Lorem ipsum dolor sit amet.</p>
+              </div>
+
+              <button type="button" class="btn btn-warning interaction-añadir" data-id='8'>Añadir al carrito</button>
+
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100">
+              <a href="#"><img class="card-img-top" src="assets/img/a31.png" alt=""></a>
+              <div class="card-body">
+                <h4 class="card-title">
+                  <a href="#">SM A31</a>
+                </h4>
+                <h5>$34000</h5>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!
+                </p>
+              </div>
+
+              <button type="button" class="btn btn-warning interaction-añadir" data-id='9'>Añadir al carrito</button>
+
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100">
+              <a href="#"><img class="card-img-top" src="assets/img/samsung s20.png" alt=""></a>
+              <div class="card-body">
+                <h4 class="card-title">
+                  <a href="#">SM S20</a>
+                </h4>
+                <h5>$74000</h5>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!
+                </p>
+              </div>
+
+              <button type="button" class="btn btn-warning interaction-añadir" data-id='10'>Añadir al carrito</button>
+
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100">
+              <a href="#"><img class="card-img-top" src="assets/img/iphone_12_PNG19.png" alt=""></a>
+              <div class="card-body">
+                <h4 class="card-title">
+                  <a href="#">Iphone 12 pro</a>
+                </h4>
+                <h5>$140000</h5>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!
+                  Lorem ipsum dolor sit amet.</p>
+              </div>
+
+              <button type="button" class="btn btn-warning interaction-añadir" data-id='11'>Añadir al carrito</button>
+
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100">
+              <a href="#"><img class="card-img-top" src="assets/img/xiaomi.png" alt=""></a>
+              <div class="card-body">
+                <h4 class="card-title">
+                  <a href="#">Xiaomi Note 9 pro</a>
+                </h4>
+                <h5>$50000</h5>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!
+                </p>
+              </div>
+
+              <button type="button" class="btn btn-warning interaction-añadir" data-id='12'>Añadir al carrito</button>
+
+            </div>
+          </div>
+
+        </div>
+        <!-- /.row -->
+
+      </div>
+      <!-- /.col-lg-9 -->
+
+    </div>
+    <!-- /.row -->
+
+  </div>
+  <!-- /.container -->
+
+
+  <div class="container">
+    <h4 id='carrito-titulo' class="titulo-carrito card-title">Carrito de compras:</h4>
+    <div class="carrito" id='carritoHTML'>
+
+      <div class="producto" id='producto'>
+        <div class="fila nombre ">
+          <div class="img">
+            <img src="assets/img/asustuf.png" alt="">
+          </div>
+          <div class="nombreProd">
+            <p class='nombreProducto'>nombre</p>
+          </div>
+
+        </div>
+        <div class="fila precios ">
+          <p class="price">
+            Price:
+          </p>
+          <p class="valor">
+            $32234
+          </p>
+
+        </div>
+        <div class="fila cantidad ">
+          <p class="Quantity">
+            Quantity:
+          </p>
+          <input type="number" class='cantidad-input' min="1">
+        </div>
+
+        <div class="quitar">
+          <a href="">QUITAR</a>
+        </div>
+      </div>
+
+      <div class="producto" id='producto'>
+        <div class="fila nombre ">
+          <div class="img">
+            <img src="assets/img/asustuf.png" alt="">
+          </div>
+          <div class="nombreProd">
+            <p class='nombreProducto'>nombre</p>
+          </div>
+
+        </div>
+        <div class="fila precios ">
+          <p class="price">
+            Price:
+          </p>
+          <p class="valor">
+            $32234
+          </p>
+
+        </div>
+        <div class="fila cantidad ">
+          <p class="Quantity">
+            Quantity:
+          </p>
+          <input type="number" class='cantidad-input' min="1">
+        </div>
+
+        <div class="quitar">
+          <a href="">QUITAR</a>
+        </div>
+      </div>
+
+      <div class=" total ">
+        <p class="subtotal">
+          Subtotal:
+        </p>
+        <p class="subtotal-valor">
+          $35005
+        </p>
+
+        <button type="button" class="btn btn-warning">Comprar</button>
+      </div>
+    </div>
+
+
+  </div>
+
+
+  <!-- Footer -->
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Tobias Possetto 2021</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+
+  <script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>
