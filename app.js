@@ -27,6 +27,8 @@ $(document).ready(function () {
             console.log(cardProducto);
             obtenerDatosProducto(cardProducto);
         }
+
+        mensajeCreado();
     })
 
     function obtenerDatosProducto(cardProducto) {
@@ -105,16 +107,7 @@ $(document).ready(function () {
                   </div>
               </div>
 
-                <div class=" total ">
-                <p class="subtotal">
-                    Subtotal:
-                </p>
-                <p class="subtotal-valor">
-                    $35005
-                </p>
-        
-                <button type="button" class="btn btn-warning">Comprar</button>
-                </div>
+              
             </div>
 
               `
@@ -150,4 +143,39 @@ $(document).ready(function () {
     function actualizarStorage() {
         localStorage.setItem('carrito', JSON.stringify(carrito));
     }
+
+
+
+
+
+
+
+
+
+    $('#btn-inicio').click( function(e) { 
+        e.preventDefault();
+        //Animamos sus propiedades CSS con animate
+        $('html, body').animate({
+            scrollTop: $("body").offset().top  
+        }, 1000);
+    } );
+
+    $('#btn-carrito').click( function(e) { 
+        e.preventDefault();
+        //Animamos sus propiedades CSS con animate
+        $('html, body').animate({
+            scrollTop: $("#carritoContainer").offset().top  
+        }, 1000);
+    } );
+
+    function mensajeCreado(){
+        $('#mensaje').animate({
+            left: 0 
+        }).delay(3000).animate({
+            left: -1000
+        });
+        
+    }
+
+    
 })

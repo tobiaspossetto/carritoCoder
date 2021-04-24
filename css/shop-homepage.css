@@ -42,6 +42,9 @@ body {
   margin-bottom: 15px;
 }
 
+.logo-a .logo-img{
+  width: 150px;
+}
 
 
 body .carrito {
@@ -153,4 +156,34 @@ footer{
 .titulo-carrito{
   margin-top: 100px;
   text-align: center;
+}
+
+
+.mensajeAgregado{
+  border-top: 5px solid #004872;
+  border-right: 5px solid #004872;
+  border-bottom: 5px solid #004872;
+  margin-top: 10px;
+  background-color: #0076B8;
+  width: 70%;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+
+  position: fixed;
+  left: -1500px;
+  z-index: 100;
+}
+
+.mensaje{
+  margin: 10px;
+}
+.mensaje h1{
+  font-size: 20px;
+  color: white;
+  font-weight: 400;
+  text-align: center;
+
 }
