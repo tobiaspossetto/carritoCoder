@@ -1,9 +1,11 @@
 $(document).ready(function () {
 
+    
     let listaProductos = $('#lista-productos');
     let carritoHTML = $('#carritoHTML')
     let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-
+    let montoTotal = $('#montoTotal');
+  
 
 
     if (carrito[0]) {
@@ -19,12 +21,15 @@ $(document).ready(function () {
 
 
 
-
+    //si hace click dentro del container de listaProductos
     listaProductos.click(function agregarProducto(e) {
         e.preventDefault();
+        //busca una clase que sea interaction-añadir
         if (e.target.classList.contains('interaction-añadir')) {
+            //sube hasta la card y la guarda
             const cardProducto = e.target.parentElement;
             console.log(cardProducto);
+            //lo paso como parametro a la funcion
             obtenerDatosProducto(cardProducto);
         }
 
@@ -33,7 +38,7 @@ $(document).ready(function () {
 
     function obtenerDatosProducto(cardProducto) {
 
-
+        //creo el objeto
         const producto = {
             nombre: $(cardProducto).children('#card-body').children('#card-title').text(),
             imagen: $(cardProducto).children('a').children('img').attr('src'),
@@ -41,12 +46,12 @@ $(document).ready(function () {
             cantidad: 1,
             id: $(cardProducto).children('#btn').data('id')
 
-
+            
         }
-
-
+        
+        //lo empujo al carrito
         carrito.push(producto);
-
+       
 
         actualizarCarrito();
 
@@ -61,7 +66,7 @@ $(document).ready(function () {
 
 
 
-
+        //recorre el carrito y lo imprime
         $(carrito).each(e => {
 
             let nombre = carrito[e].nombre;
@@ -123,19 +128,24 @@ $(document).ready(function () {
 
         carritoHTML.html(contenidoCarrito)
         actualizarStorage()
-
+        actualizarPrecio()
     }
 
     carritoHTML.click(function borrarProducto(e) {
-        console.log('borrarClick')
+        
+        //si hizo click en el btn con la clase borrar-producto
         if (e.target.classList.contains('borrar-producto')) {
+
+            //busca el id de ese btn
             let id = e.target.getAttribute('data-id');
             console.log(id)
+            //filtra del carrito y quita el objeto con ese id
             carrito = carrito.filter(producto => producto.id != id);
             console.log(carrito)
 
             actualizarCarrito()
             actualizarStorage()
+            //actualizarPrecio()
         }
     })
 
@@ -150,8 +160,27 @@ $(document).ready(function () {
 
 
 
+    
+    function actualizarPrecio(){
+        let total = 0
+        console.log()
+        
+        $(carrito).each(function(e){
+          
+            total +=carrito[e].precio;
+           
+            console.log(total)
+        })
+        console.log(total)
+        $(montoTotal).html(total)
+    }
+  
+    
 
 
+    
+
+    //animaciones y mensajes
     $('#btn-inicio').click( function(e) { 
         e.preventDefault();
         //Animamos sus propiedades CSS con animate
@@ -177,5 +206,4 @@ $(document).ready(function () {
         
     }
 
-    
 })
