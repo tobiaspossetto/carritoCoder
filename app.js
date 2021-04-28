@@ -5,14 +5,22 @@ $(document).ready(function () {
     let carritoHTML = $('#carritoHTML')
     let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
     let montoTotal = $('#montoTotal');
-  
-
-
+    
+    let productosJSON = [];
+    let producto = {}
+    
+    $.ajax("productos.json").done(function(data) {
+        productosJSON = data;
+        console.log('listo')
+        console.log(productosJSON)
+    });
+    
     if (carrito[0]) {
 
         actualizarCarrito();
     }
 
+    
 
 
 
@@ -27,34 +35,78 @@ $(document).ready(function () {
         //busca una clase que sea interaction-añadir
         if (e.target.classList.contains('interaction-añadir')) {
             //sube hasta la card y la guarda
-            const cardProducto = e.target.parentElement;
+            const cardProducto = $(e.target.parentElement).attr('data-id');
+            
             console.log(cardProducto);
             //lo paso como parametro a la funcion
-            obtenerDatosProducto(cardProducto);
-        }
-
-        mensajeCreado();
-    })
-
-    function obtenerDatosProducto(cardProducto) {
-
-        //creo el objeto
-        const producto = {
-            nombre: $(cardProducto).children('#card-body').children('#card-title').text(),
-            imagen: $(cardProducto).children('a').children('img').attr('src'),
-            precio: $(cardProducto).children('#card-body').children('#precio').text(),
-            cantidad: 1,
-            id: $(cardProducto).children('#btn').data('id')
-
-            
+            obtenerDatosProducto(cardProducto, productosJSON);
+            mensajeCreado();
         }
         
-        //lo empujo al carrito
-        carrito.push(producto);
        
+    })
 
+    function obtenerDatosProducto(cardProducto, productosJSON) {
+
+        //creo el objeto
+        
+        $(productosJSON).each(function(e){
+            
+            
+            if(cardProducto == productosJSON[e].id){
+                
+                producto = {
+                    id: productosJSON[e].id,
+                    cantidad: 1,
+                    precio: productosJSON[e].price,
+                    imagen: productosJSON[e].img,
+                    nombre: productosJSON[e].title
+
+                }
+            }
+        })
+
+        console.log(producto)
+       
+        
+        
+        const prodExistente = carrito.find(prod => prod.id === producto.id)
+
+        if(prodExistente){
+            const productos = carrito.map(producto => {
+                if(producto.id === prodExistente.id){
+                    producto.cantidad++;
+                    return producto;
+                }else{
+                    return producto;
+                }
+
+            })
+
+
+            carrito = [...productos];
+        }else{
+            carrito.push(producto);
+        }
+        /*
+        $(carrito).each(function(e){
+            if(carrito[e].id === producto.id){
+                carrito[e].cantidad= carrito[e].cantidad + 1
+                console.log('encontrado')
+                
+            }else{
+                
+                console.log('añadido')
+                actualizarCarrito();
+            }
+        })
+        */
         actualizarCarrito();
+        //console.log('carrito:')
+       // console.log(carrito)
 
+        
+        
     }
 
 
@@ -103,7 +155,7 @@ $(document).ready(function () {
                       <p class="Quantity">
                           Quantity:
                       </p>
-                      <input type="number" class='cantidad-input' min="1" value='${cantidad}'>
+                      <input type="number" id='cantidad' data-id='${id}' class='cantidad-input' min="1" value='${cantidad}'>
                   </div>
     
                   <div class="quitar">
@@ -130,6 +182,31 @@ $(document).ready(function () {
         actualizarStorage()
         actualizarPrecio()
     }
+    
+    carritoHTML.click(function cambiarCantidad(e){
+        if (e.target.classList.contains('cantidad-input')) {
+            let inputCantidad = $(e.target).val();
+            let idProducto =  $(e.target).attr('data-id')
+            console.log('---------------------')
+            console.log(`cantidad = ${inputCantidad}`)
+            console.log(`id = ${idProducto}`)
+            console.log(carrito)
+            
+
+            $(carrito).each(function(e){
+                if(carrito[e].id == idProducto){
+                    carrito[e].cantidad = Number(inputCantidad);
+                    actualizarCarrito()
+                    actualizarStorage()
+                    actualizarPrecio()
+                    mensajeCreado();
+                }
+            })
+
+        }
+
+        
+    })
 
     carritoHTML.click(function borrarProducto(e) {
         
@@ -145,7 +222,8 @@ $(document).ready(function () {
 
             actualizarCarrito()
             actualizarStorage()
-            //actualizarPrecio()
+            actualizarPrecio()
+            mensajeEliminado()
         }
     })
 
@@ -154,7 +232,7 @@ $(document).ready(function () {
         localStorage.setItem('carrito', JSON.stringify(carrito));
     }
 
-
+ 
 
 
 
@@ -167,12 +245,12 @@ $(document).ready(function () {
         
         $(carrito).each(function(e){
           
-            total +=carrito[e].precio;
+            total +=carrito[e].precio * carrito[e].cantidad;
            
             console.log(total)
         })
         console.log(total)
-        $(montoTotal).html(total)
+        $(montoTotal).html(`$${total}`)
     }
   
     
@@ -198,12 +276,22 @@ $(document).ready(function () {
     } );
 
     function mensajeCreado(){
-        $('#mensaje').animate({
+        $('#agregado').animate({
             left: 0 
         }).delay(3000).animate({
-            left: -1000
+            left: -5000
         });
         
     }
 
+    function mensajeEliminado(){
+        $('#eliminado').animate({
+            left: 0 
+        }).delay(3000).animate({
+            left: -5000
+        });
+        
+    }
+    actualizarPrecio()
+    
 })

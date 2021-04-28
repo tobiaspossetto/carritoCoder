@@ -1,0 +1,87 @@
+[
+    {
+        "id": 1,
+        "title": "Acer Aspire",
+        "cantidad": 1,
+        "price": 125000,
+        "img" : "assets/img/aceraspire.png"
+    },
+    {
+        "id": 2,
+        "title": "Asus TUF",
+        "cantidad": 1,
+        "price": 175000,
+        "img" : "assets/img/asustuf.png"
+    },
+    {
+        "id": 3,
+        "title": "Asus Zenbo",
+        "cantidad": 1,
+        "price": 160000,
+        "img" : "assets/img/asuszenbo.png"
+    },
+    {
+        "id": 4,
+        "title": "Lenovo",
+        "cantidad": 1,
+        "price": 80000,
+        "img" : "assets/img/lenovo.png"
+    },
+    {
+        "id": 5,
+        "title": "Macbook Air",
+        "cantidad": 1,
+        "price": 340000,
+        "img" : "assets/img/macbookair.png"
+    },
+    {
+        "id": 6,
+        "title": "Mackbook Pro",
+        "cantidad": 1,
+        "price": 460000,
+        "img" : "assets/img/macbookpro.png"
+    },
+    {
+        "id": 7,
+        "title": "Acer Nitro 5",
+        "cantidad": 1,
+        "price": 190000,
+        "img" : "assets/img/nitro5.png"
+    },
+    {
+        "id": 8,
+        "title": "Lenovo Aspire",
+        "cantidad": 1,
+        "price": 120000,
+        "img" : "assets/img/otralenovo.png"
+    },
+    {
+        "id": 9,
+        "title": "SM A31",
+        "cantidad": 1,
+        "price": 34000,
+        "img" : "assets/img/a31.png"
+    },
+    {
+        "id": 10,
+        "title": "SM S20",
+        "cantidad": 1,
+        "price": 74000,
+        "img" : "assets/img/samsung s20.png"
+    },
+    {
+        "id": 11,
+        "title": "Iphone 12 pro",
+        "cantidad": 1,
+        "price": 140000,
+        "img" : "assets/img/iphone_12_PNG19.png"
+    },
+    {
+        "id": 12,
+        "title": "Xiaomi Note 9 pro",
+        "cantidad": 1,
+        "price": 50000,
+        "img" : "assets/img/xiaomi.png"
+    }
+
+]

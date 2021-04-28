@@ -45,9 +45,14 @@
   </nav>
 
 
-  <div id='mensaje' class="mensajeAgregado">
+  <div id='agregado' class="mensajeAgregado">
     <div class="mensaje">
       <h1>Su producto fue agregado con exito.</h1>
+    </div>
+  </div>
+  <div id='eliminado' class="mensajeEliminado">
+    <div class="mensaje">
+      <h1>Su producto fue eliminado.</h1>
     </div>
   </div>
 
@@ -108,7 +113,7 @@
         <div class="row" id='lista-productos'>
 
           <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card h-100">
+            <div data-id="1" class="card h-100">
               <a href="#"><img class="card-img-top" src="assets/img/aceraspire.png" alt=""></a>
               <div class="card-body" id='card-body'>
                 <h4 class="card-title" id='card-title'>Acer Aspire</h4>
@@ -124,7 +129,7 @@
           </div>
 
           <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card h-100">
+            <div data-id="2" class="card h-100">
               <a href="#"><img class="card-img-top" src="assets/img/asustuf.png" alt=""></a>
               <div class="card-body" id='card-body'>
                 <h4 class="card-title" id='card-title'>Asus TUF</h4>
@@ -139,7 +144,7 @@
             </div>
           </div>
           <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card h-100">
+            <div data-id="3" class="card h-100">
               <a href="#"><img class="card-img-top" src="assets/img/asuszenbo.png" alt=""></a>
               <div class="card-body" id='card-body'>
                 <h4 class="card-title" id='card-title'>Asus Zenbo</h4>
@@ -154,7 +159,7 @@
             </div>
           </div>
           <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card h-100">
+            <div data-id="4" class="card h-100">
               <a href="#"><img class="card-img-top" src="assets/img/lenovo.png" alt=""></a>
               <div class="card-body" id='card-body'>
                 <h4 class="card-title" id='card-title'>Lenovo</h4>
@@ -168,7 +173,7 @@
 
             </div>
           </div>
-          <div class="col-lg-4 col-md-6 mb-4">
+          <div data-id="5" class="col-lg-4 col-md-6 mb-4">
             <div class="card h-100">
               <a href="#"><img class="card-img-top" src="assets/img/macbookair.png" alt=""></a>
               <div class="card-body" id='card-body'>
@@ -183,7 +188,7 @@
 
             </div>
           </div>
-          <div class="col-lg-4 col-md-6 mb-4">
+          <div data-id="6" class="col-lg-4 col-md-6 mb-4">
             <div class="card h-100">
               <a href="#"><img class="card-img-top" src="assets/img/macbookpro.png" alt=""></a>
               <div class="card-body" id='card-body'>
@@ -199,7 +204,7 @@
             </div>
           </div>
           <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card h-100">
+            <div data-id="7" class="card h-100">
               <a href="#"><img class="card-img-top" src="assets/img/nitro5.png" alt=""></a>
               <div class="card-body" id='card-body'>
                 <h4 class="card-title" id='card-title'>Acer Nitro 5</h4>
@@ -214,7 +219,7 @@
             </div>
           </div>
           <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card h-100">
+            <div  data-id="8" class="card h-100">
               <a href="#"><img class="card-img-top" src="assets/img/otralenovo.png" alt=""></a>
               <div class="card-body" id='card-body'>
                 <h4 class="card-title" id='card-title'>Lenovo Aspire</h4>
@@ -230,7 +235,7 @@
           </div>
 
           <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card h-100">
+            <div data-id="9" class="card h-100">
               <a href="#"><img class="card-img-top" src="assets/img/a31.png" alt=""></a>
               <div class="card-body" id='card-body'>
                 <h4 class="card-title" id='card-title'>SM A31</h4>
@@ -246,7 +251,7 @@
           </div>
 
           <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card h-100">
+            <div data-id="10" class="card h-100">
               <a href="#"><img class="card-img-top" src="assets/img/samsung s20.png" alt=""></a>
               <div class="card-body" id='card-body'>
                 <h4 class="card-title" id='card-title'>SM S20</h4>
@@ -262,7 +267,7 @@
           </div>
 
           <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card h-100">
+            <div data-id="11" class="card h-100">
               <a href="#"><img class="card-img-top" src="assets/img/iphone_12_PNG19.png" alt=""></a>
               <div class="card-body" id='card-body'>
                 <h4 class="card-title" id='card-title'>Iphone 12 pro</h4>
@@ -278,7 +283,7 @@
           </div>
 
           <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card h-100">
+            <div data-id="12" class="card h-100">
               <a href="#"><img class="card-img-top" src="assets/img/xiaomi.png" alt=""></a>
               <div class="card-body" id='card-body'>
                 <h4 class="card-title" id='card-title'>Xiaomi Note 9 pro</h4>

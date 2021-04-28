@@ -159,7 +159,8 @@ footer{
 }
 
 
-.mensajeAgregado{
+.mensajeAgregado,
+.mensajeEliminado{
   border-top: 5px solid #004872;
   border-right: 5px solid #004872;
   border-bottom: 5px solid #004872;
@@ -177,6 +178,12 @@ footer{
   z-index: 100;
 }
 
+.mensajeEliminado{
+  border-top: 5px solid #b93500;
+  border-right: 5px solid #b93500;
+  border-bottom: 5px solid #b93500;
+  background-color: #d33100;
+}
 .mensaje{
   margin: 10px;
 }
