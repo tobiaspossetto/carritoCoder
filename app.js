@@ -1,18 +1,19 @@
 $(document).ready(function () {
 
     
-    let listaProductos = $('#lista-productos');
+    let listaProductos = $('body') ;
     let carritoHTML = $('#carritoHTML')
     let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
     let montoTotal = $('#montoTotal');
     
     let productosJSON = [];
-    let producto = {}
+    //let producto = {}
     
     $.ajax("productos.json").done(function(data) {
         productosJSON = data;
         console.log('listo')
         console.log(productosJSON)
+        renderizarHTML()
     });
     
     if (carrito[0]) {
@@ -21,8 +22,109 @@ $(document).ready(function () {
     }
 
     
+    //buscador
+
+    
+    let buscarBtn = $('#buscarBtn');
+
+    $(buscarBtn).click(function(e){
+        let resultadoBusqueda = $('#resultadoBusqueda');
+        $(resultadoBusqueda).text('')
+        let mensajeBusqueda = $(document.createElement('h5'))
+        $(mensajeBusqueda).text('Resultado de busqueda:')
+        e.preventDefault();
+        let inputBuscador = $('#buscarInput').val();
+        inputBuscador = inputBuscador.toLocaleLowerCase();
+        if(inputBuscador != ''){
+            let resultado = productosJSON.filter(e => e.title.toLocaleLowerCase().includes(inputBuscador));
+            
+
+            $(resultadoBusqueda).append(mensajeBusqueda);
+            
+    
+            
+            if(resultado){
+                resultado.forEach(e=>{
+                    const {id,title,cantidad,price,img} = e;
+              
+           
+               
+           
+                    let contenedorCard = $(document.createElement('div'));
+                    $(contenedorCard).attr('data-id', id);
+                    $(contenedorCard).addClass('card h-100')
+                        let cardA = $(document.createElement('a'));
+                    
+                        let cardAimg = $(document.createElement('img'));
+                        $(cardAimg).addClass('card-img-top')
+                        $(cardAimg).attr('src', img);
+                    let cardInfo = $(document.createElement('div'));
+                    
+                        $(cardInfo).attr('id', 'card-body');
+                        $(cardInfo).addClass('card-body')
+                        let cardInfoTitle = $(document.createElement('h4'))
+                        $(cardInfoTitle).attr('id', 'card-title');
+                        $(cardInfoTitle).addClass('card-title')
+                        $(cardInfoTitle).text(title);
+                        let cardInfoPrecio = $(document.createElement('h5'))
+                        $(cardInfoPrecio).attr('id', 'precio');
+                        $(cardInfoPrecio).addClass('precio')
+                        $(cardInfoPrecio).text(`$ ${price}`);
+                        let cardInfoText = $(document.createElement('p'))
+                        $(cardInfoText).text('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur');
+                        $(cardInfoText).addClass('card-text')
+                    let cardBtn = $(document.createElement('button'))
+                    $(cardBtn).addClass('btn btn-warning interaction-añadir')
+                    $(cardBtn).attr('id', 'btn');
+                    $(cardBtn).attr('type', 'button');
+                    $(cardBtn).attr('data-id', id);
+                    $(cardBtn).text('Añadir al carrito');
+    
+    
+    
+                    $(cardInfo).append(cardInfoTitle);
+                    $(cardInfo).append(cardInfoPrecio);
+                    $(cardInfo).append(cardInfoText);
+                    $(cardA).append(cardAimg);
+                    $(contenedorCard).append(cardA)
+                    $(contenedorCard).append(cardInfo)
+                    $(contenedorCard).append(cardBtn)
+                    
+                   
+                   
+                   
+                    $(resultadoBusqueda).append(contenedorCard);
+                    /*
+                    resultadoHTML +=`
+                    <div data-id="${id}" class="card h-100">
+                        <a href="#"><img class="card-img-top" src="${img}" alt=""></a>
+                        <div class="card-body" id='card-body'>
+                            <h4 class="card-title" id='card-title'>${title}</h4>
+                            <h5 class='precio' id='precio'>${price}</h5>
+                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!
+                            </p>
+                        </div>
+        
+                        <button type="button" class="btn btn-warning interaction-añadir" id='btn' data-id='${id}'>Añadir al
+                        carrito</button>
+      
+                   </div>
+                    
+                    `*/
+                })
+            }
+            //$(resultadoBusqueda).html(resultadoHTML)
+        }else{
+            $(resultadoBusqueda).html('')
+        }
+       
+
+        console.log(inputBuscador)
+
+    })
 
 
+    
 
 
 
@@ -175,10 +277,10 @@ $(document).ready(function () {
                
                 $(divQuitar).addClass('quitar');
                     let btnQuitar = $(document.createElement('button'))
-                    $(btnQuitar).addClass('borrar-producto');
+                    $(btnQuitar).addClass('borrar-producto btn btn-danger');
                     $(btnQuitar).attr('type', 'button');
                     $(btnQuitar).attr('data-id',id);
-                    $(btnQuitar).text('Quitar');
+                    $(btnQuitar).text('Eliminar');
 
                     $(divQuitar).append(btnQuitar);
                     $(divFilaCantidad).append(pCantidad);
@@ -200,6 +302,79 @@ $(document).ready(function () {
         actualizarPrecio()
     }
     
+    //renderizar productos
+
+    function renderizarHTML(){
+        let listaProductos = $('#lista-productos');
+        $(listaProductos).html('');
+       
+        $(productosJSON).each(function (e){
+            
+            let title = productosJSON[e].title
+            let img = productosJSON[e].img
+            let price = productosJSON[e].price
+            let id = productosJSON[e].id
+            console.log(title,id,img,price)
+            console.log(e)
+            let contenedorColCard = $(document.createElement('div'));
+           
+            $(contenedorColCard).addClass('col-lg-4 col-md-6 mb-4')
+           
+                let contenedorCard = $(document.createElement('div'));
+                $(contenedorCard).attr('data-id', id);
+                $(contenedorCard).addClass('card h-100')
+                    let cardA = $(document.createElement('a'));
+                    
+                        let cardAimg = $(document.createElement('img'));
+                        $(cardAimg).addClass('card-img-top')
+                        $(cardAimg).attr('src', img);
+                    let cardInfo = $(document.createElement('div'));
+                    
+                        $(cardInfo).attr('id', 'card-body');
+                        $(cardInfo).addClass('card-body')
+                        let cardInfoTitle = $(document.createElement('h4'))
+                        $(cardInfoTitle).attr('id', 'card-title');
+                        $(cardInfoTitle).addClass('card-title')
+                        $(cardInfoTitle).text(title);
+                        let cardInfoPrecio = $(document.createElement('h5'))
+                        $(cardInfoPrecio).attr('id', 'precio');
+                        $(cardInfoPrecio).addClass('precio')
+                        $(cardInfoPrecio).text(`$ ${price}`);
+                        let cardInfoText = $(document.createElement('p'))
+                        $(cardInfoText).text('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur');
+                        $(cardInfoText).addClass('card-text')
+                    let cardBtn = $(document.createElement('button'))
+                    $(cardBtn).addClass('btn btn-warning interaction-añadir')
+                    $(cardBtn).attr('id', 'btn');
+                    $(cardBtn).attr('type', 'button');
+                    $(cardBtn).attr('data-id', id);
+                    $(cardBtn).text('Añadir al carrito');
+    
+    
+    
+                    $(cardInfo).append(cardInfoTitle);
+                    $(cardInfo).append(cardInfoPrecio);
+                    $(cardInfo).append(cardInfoText);
+                    $(cardA).append(cardAimg);
+                    $(contenedorCard).append(cardA)
+                    $(contenedorCard).append(cardInfo)
+                    $(contenedorCard).append(cardBtn)
+                    $(contenedorColCard).append(contenedorCard);
+                   
+                   
+                   
+                    $(listaProductos).append(contenedorColCard);
+        })
+
+
+        //let cardProductoHTML =''
+    
+          
+                   
+        /////////////////////////////////
+    }
+
+
     $(carritoHTML).click(function cambiarCantidad(e){
         if (e.target.classList.contains('cantidad-input')) {
             let inputCantidad = $(e.target).val();
@@ -216,7 +391,7 @@ $(document).ready(function () {
                     actualizarCarrito()
                     actualizarStorage()
                     actualizarPrecio()
-                    mensajeCreado();
+                    //mensajeCreado();
                 }
             })
 
@@ -312,53 +487,3 @@ $(document).ready(function () {
     actualizarPrecio()
     
 })
-
-/*contenidoCarrito += `
-                  <div class="producto" id='producto'> 
-                  <div class="fila nombre "> 
-                      <div class="img"> 
-                          <img src="${imagen}" alt="">
-                  
-                      </div>
-                      <div class="nombreProd">
-                          <p class='nombreProducto'>${nombre}</p>
-                      </div>
-                  </div>
-    
-                  <div class="fila precios ">
-                      <p class="price">
-                          Price:
-                      </p>
-                      <p class="valor">
-                          ${precio}
-                      </p>
-    
-                  </div>
-    
-                  <div class="fila cantidad ">
-                      <p class="Quantity">
-                          Quantity:
-                      </p>
-                      <input type="number" id='cantidad' data-id='${id}' class='cantidad-input' min="1" value='${cantidad}'>
-                  </div>
-    
-                  <div class="quitar">
-                      
-                      <button type='button'  class='borrar-producto' data-id="${id}">QUITAR</button>
-                  </div>
-              </div>
-
-              
-            </div>
-
-              `
-
-
-              
-              //<a href="" class='borrar-producto'  data-id="${id}">QUITAR</a>
-              
-              
-              
-              
-              
-              carritoHTML.html(contenidoCarrito)*/

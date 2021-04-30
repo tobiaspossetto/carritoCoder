@@ -161,35 +161,31 @@ footer{
 
 .mensajeAgregado,
 .mensajeEliminado{
-  border-top: 5px solid #004872;
-  border-right: 5px solid #004872;
-  border-bottom: 5px solid #004872;
+  box-shadow: 9px -1px 12px 0px rgba(0,0,0,0.4);
   margin-top: 10px;
-  background-color: #0076B8;
-  width: 70%;
+  background-color: #37c200;
+  width: 40%;
   padding: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
   height: auto;
-
+  border-radius: 0px 15px 15px 0px;
   position: fixed;
   left: -1500px;
   z-index: 100;
 }
 
 .mensajeEliminado{
-  border-top: 5px solid #b93500;
-  border-right: 5px solid #b93500;
-  border-bottom: 5px solid #b93500;
-  background-color: #d33100;
+  
+  background-color: #f16439;
 }
 .mensaje{
   margin: 10px;
 }
 .mensaje h1{
   font-size: 20px;
-  color: white;
+  color: rgb(0, 0, 0);
   font-weight: 400;
   text-align: center;
 
