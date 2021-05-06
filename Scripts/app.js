@@ -1,9 +1,9 @@
 $(document).ready(function () {
 
     //definicion de variables 
-    let listaProductos = $('body') ;
-    let carritoHTML = $('#carritoHTML')
-    let montoTotal = $('#montoTotal');
+    const listaProductos = $('body') ;
+    const carritoHTML = $('#carritoHTML')
+    const montoTotal = $('#montoTotal');
     
     // carrito va a traer lo que guardo el localStorage, si no tiene nada entonces va a estar vacio
     let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
@@ -28,20 +28,20 @@ $(document).ready(function () {
     //---------------------------
     //BUSCADOR
 
-    let buscarBtn = $('#buscarBtn');
+    const buscarBtn = $('#buscarBtn');
 
     //si hace click en el btn de buscar
     $(buscarBtn).click(function(e){
         e.preventDefault();
 
         
-        let resultadoBusqueda = $('#resultadoBusqueda');
+        const resultadoBusqueda = $('#resultadoBusqueda');
         $(resultadoBusqueda).text('')
-        let mensajeBusqueda = $(document.createElement('h5'))
+        const mensajeBusqueda = $(document.createElement('h5'))
         $(mensajeBusqueda).text('Resultado de busqueda:')
 
         //guarda el valor del input
-        let inputBuscador = $('#buscarInput').val();
+        const inputBuscador = $('#buscarInput').val();
         //pasa todo a minuscula
         inputBuscador = inputBuscador.toLocaleLowerCase();
 
@@ -49,7 +49,7 @@ $(document).ready(function () {
         if(inputBuscador != ''){
 
             //busca en los productos que traje del JSON si coincide el titulo con lo que busco el usuario, pasandolo a minusculas
-            let resultado = productosJSON.filter(e => e.title.toLocaleLowerCase().includes(inputBuscador));
+            const resultado = productosJSON.filter(e => e.title.toLocaleLowerCase().includes(inputBuscador));
             
           
             
@@ -67,30 +67,30 @@ $(document).ready(function () {
                
                     //creo las etiquetas con sus atributos para formar la card, agregando los valores correspondientes
                     //---------------------
-                                    let contenedorCard = $(document.createElement('div'));
+                                    const contenedorCard = $(document.createElement('div'));
                                     $(contenedorCard).attr('data-id', id);
                                     $(contenedorCard).addClass('card h-100 mt-5')
-                                        let cardA = $(document.createElement('a'));
+                                        const cardA = $(document.createElement('a'));
                                     
-                                        let cardAimg = $(document.createElement('img'));
+                                        const cardAimg = $(document.createElement('img'));
                                         $(cardAimg).addClass('card-img-top')
                                         $(cardAimg).attr('src', img);
-                                    let cardInfo = $(document.createElement('div'));
+                                    const cardInfo = $(document.createElement('div'));
                                     
                                         $(cardInfo).attr('id', 'card-body');
                                         $(cardInfo).addClass('card-body')
-                                        let cardInfoTitle = $(document.createElement('h4'))
+                                        const cardInfoTitle = $(document.createElement('h4'))
                                         $(cardInfoTitle).attr('id', 'card-title');
                                         $(cardInfoTitle).addClass('card-title')
                                         $(cardInfoTitle).text(title);
-                                        let cardInfoPrecio = $(document.createElement('h5'))
+                                        const cardInfoPrecio = $(document.createElement('h5'))
                                         $(cardInfoPrecio).attr('id', 'precio');
                                         $(cardInfoPrecio).addClass('precio')
                                         $(cardInfoPrecio).text(`$ ${price}`);
-                                        let cardInfoText = $(document.createElement('p'))
+                                        const cardInfoText = $(document.createElement('p'))
                                         $(cardInfoText).text('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur');
                                         $(cardInfoText).addClass('card-text')
-                                    let cardBtn = $(document.createElement('button'))
+                                    const cardBtn = $(document.createElement('button'))
                                     $(cardBtn).addClass('btn btn-warning interaction-añadir')
                                     $(cardBtn).attr('id', 'btn');
                                     $(cardBtn).attr('type', 'button');
@@ -230,61 +230,61 @@ $(document).ready(function () {
         //recorre el carrito y lo imprime
         $(carrito).each(e => {
 
-            let nombre = carrito[e].nombre;
-            let imagen = carrito[e].imagen;
-            let precio = carrito[e].precio;
-            let cantidad = carrito[e].cantidad;
-            let id = carrito[e].id;
+            const nombre = carrito[e].nombre;
+            const imagen = carrito[e].imagen;
+            const precio = carrito[e].precio;
+            const cantidad = carrito[e].cantidad;
+            const id = carrito[e].id;
             //crea cada card del carrito y lo imprime con sus correspondientes datos del productos
             //-----------
-                        let divProducto = $(document.createElement('div'));
+                        const divProducto = $(document.createElement('div'));
                     
                         $(divProducto).addClass('producto');
                         $(divProducto).attr('id', 'producto');
-                            let divFilaNombre = $(document.createElement('div'));
+                            const divFilaNombre = $(document.createElement('div'));
                         
                             $(divFilaNombre).addClass('fila nombre');
                             
-                                let filaNombreDivImg = $(document.createElement('div'))
+                                const filaNombreDivImg = $(document.createElement('div'))
                                 
                                 $(filaNombreDivImg).addClass('img');
-                                    let filaNombreImg = $(document.createElement('img'));
+                                    const filaNombreImg = $(document.createElement('img'));
                                     $(filaNombreImg).attr('src', imagen);
                                     
-                                let filaNombreDivNombre = $(document.createElement('div'))
+                                const filaNombreDivNombre = $(document.createElement('div'))
                             
                                 $(filaNombreDivNombre).addClass('nombreProd');
-                                    let filaNombreP = $(document.createElement('p'))
+                                    const filaNombreP = $(document.createElement('p'))
                                     $(filaNombreP).addClass('nombreProducto');
                                     $(filaNombreP).text(nombre)
 
-                            let divFilaPrecios = $(document.createElement('div'));
+                            const divFilaPrecios = $(document.createElement('div'));
                         
                             $(divFilaPrecios).addClass('fila precios');
-                                let pPrice = $(document.createElement('p'))
+                                const pPrice = $(document.createElement('p'))
                                 $(pPrice).addClass('price');
                                 $(pPrice).text('Price:');
-                                let pPriceValue = $(document.createElement('p'))
+                                const pPriceValue = $(document.createElement('p'))
                                 $(pPriceValue).addClass('valor');
                                 $(pPriceValue).text(precio);
 
-                            let divFilaCantidad = $(document.createElement('div'));
+                            const divFilaCantidad = $(document.createElement('div'));
                         
                             $(divFilaCantidad).addClass('fila cantidad');
-                                let pCantidad = $(document.createElement('p'))
+                                const pCantidad = $(document.createElement('p'))
                                 $(pCantidad).addClass('Quantity');
                                 $(pCantidad).text('Quantity:')
-                                let inputCantidad = $(document.createElement('input'))
-                                $(inputCantidad).addClass('cantidad-input');
+                                const inputCantidad = $(document.createElement('input'))
+                                $(inputCantidad).addClass('cantidad-input ');
                                 $(inputCantidad).attr('id', 'cantidad');
                                 $(inputCantidad).attr('type', 'number');
                                 $(inputCantidad).attr('data-id', id);
                                 $(inputCantidad).attr('value' , cantidad)
                                 $(inputCantidad).attr('min', 1);
-                            let divQuitar = $(document.createElement('div'));
+                            const divQuitar = $(document.createElement('div'));
                         
                             $(divQuitar).addClass('quitar');
-                                let btnQuitar = $(document.createElement('button'))
+                                const btnQuitar = $(document.createElement('button'))
                                 $(btnQuitar).addClass('borrar-producto btn btn-danger');
                                 $(btnQuitar).attr('type', 'button');
                                 $(btnQuitar).attr('data-id',id);
@@ -316,47 +316,47 @@ $(document).ready(function () {
     //renderizar productos
     function renderizarHTML(){
         //renderiza los productos en el html
-        let listaProductos = $('#lista-productos');
+        const listaProductos = $('#lista-productos');
         $(listaProductos).html('');
        
         $(productosJSON).each(function (e){
             
-            let title = productosJSON[e].title
-            let img = productosJSON[e].img
-            let price = productosJSON[e].price
-            let id = productosJSON[e].id
+            const title = productosJSON[e].title
+            const img = productosJSON[e].img
+            const price = productosJSON[e].price
+            const id = productosJSON[e].id
             console.log(title,id,img,price)
             console.log(e)
             //crea los elementos para la card con sus respectivos datos del productos
             //----------------
-                        let contenedorColCard = $(document.createElement('div'));
+                        const contenedorColCard = $(document.createElement('div'));
                     
                         $(contenedorColCard).addClass('col-lg-4 col-md-6 mb-4')
                     
-                            let contenedorCard = $(document.createElement('div'));
+                            const contenedorCard = $(document.createElement('div'));
                             $(contenedorCard).attr('data-id', id);
                             $(contenedorCard).addClass('card h-100')
-                                let cardA = $(document.createElement('a'));
+                                const cardA = $(document.createElement('a'));
                                 
-                                    let cardAimg = $(document.createElement('img'));
+                                    const cardAimg = $(document.createElement('img'));
                                     $(cardAimg).addClass('card-img-top')
                                     $(cardAimg).attr('src', img);
-                                let cardInfo = $(document.createElement('div'));
+                                const cardInfo = $(document.createElement('div'));
                                 
                                     $(cardInfo).attr('id', 'card-body');
                                     $(cardInfo).addClass('card-body')
-                                    let cardInfoTitle = $(document.createElement('h4'))
+                                    const cardInfoTitle = $(document.createElement('h4'))
                                     $(cardInfoTitle).attr('id', 'card-title');
                                     $(cardInfoTitle).addClass('card-title')
                                     $(cardInfoTitle).text(title);
-                                    let cardInfoPrecio = $(document.createElement('h5'))
+                                    const cardInfoPrecio = $(document.createElement('h5'))
                                     $(cardInfoPrecio).attr('id', 'precio');
                                     $(cardInfoPrecio).addClass('precio')
                                     $(cardInfoPrecio).text(`$ ${price}`);
-                                    let cardInfoText = $(document.createElement('p'))
+                                    const cardInfoText = $(document.createElement('p'))
                                     $(cardInfoText).text('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur');
                                     $(cardInfoText).addClass('card-text')
-                                let cardBtn = $(document.createElement('button'))
+                                const cardBtn = $(document.createElement('button'))
                                 $(cardBtn).addClass('btn btn-warning interaction-añadir')
                                 $(cardBtn).attr('id', 'btn');
                                 $(cardBtn).attr('type', 'button');
@@ -380,7 +380,7 @@ $(document).ready(function () {
         })
 
 
-        //let cardProductoHTML =''
+        //const cardProductoHTML =''
     
           
                    
@@ -393,8 +393,8 @@ $(document).ready(function () {
         //dentro del carrito si hizo click en algun input con esa clase
         if (e.target.classList.contains('cantidad-input')) {
             //guarda el valor solicitado y el id del producto
-            let inputCantidad = $(e.target).val();
-            let idProducto =  $(e.target).attr('data-id')
+            const inputCantidad = $(e.target).val();
+            const idProducto =  $(e.target).attr('data-id')
             
             
             //recorre el carrito buscando el producto
@@ -420,7 +420,7 @@ $(document).ready(function () {
         if (e.target.classList.contains('borrar-producto')) {
 
             //busca el id de ese btn
-            let id = e.target.getAttribute('data-id');
+            const id = e.target.getAttribute('data-id');
             console.log(id)
             //filtra del carrito y quita el objeto con ese id
             carrito = carrito.filter(producto => producto.id != id);
@@ -487,7 +487,7 @@ $(document).ready(function () {
     function mensajeCreado(){
         $('#agregado').animate({
             left: 0 
-        }).delay(500).animate({
+        }).delay(1000).animate({
             left: -5000
         });
         
@@ -496,7 +496,7 @@ $(document).ready(function () {
     function mensajeEliminado(){
         $('#eliminado').animate({
             left: 0 
-        }).delay(500).animate({
+        }).delay(1000).animate({
             left: -5000
         });
         
@@ -504,5 +504,9 @@ $(document).ready(function () {
 
     //actualiza el precio al cargar el documento
     actualizarPrecio()
+
+
+
+    $('#btnComprar').click( () => alert('Hasta aca llegamos :D'))
     
 })
